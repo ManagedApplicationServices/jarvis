@@ -15,7 +15,8 @@ class User
     @display_name   = entry[LDAP_CONFIG['name_key'].to_sym].first
     @department     = entry[LDAP_CONFIG['department_key'].to_sym]
     @title          = entry[LDAP_CONFIG['title_key'].to_sym]
-    @employee_no    = entry[LDAP_CONFIG['employee_id_key'].to_sym].presence
-    @employee_no  ||= entry[LDAP_CONFIG['employee_no_key'].to_sym]
+    @employee_no    = entry[LDAP_CONFIG['employee_no_key'].to_sym].presence
+    @employee_no  ||= entry[LDAP_CONFIG['description_key'].to_sym].presence
+    @employee_no  ||= entry[LDAP_CONFIG['employee_id_key'].to_sym]
   end
 end
